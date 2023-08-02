@@ -1,18 +1,16 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
-import Image from "next/image";
 import clsx from "clsx";
-import { BsTelephoneFill } from "react-icons/bs";
+import Image from "next/image";
+import React, { useState, useEffect, useRef } from "react";
 
-const Carousel = ({ images, interval, odooBanner }) => {
+const Carousel = ({ slidesContent, interval, odooBanner }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timerRef = useRef(null);
 
   const startTimer = () => {
     timerRef.current = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slidesContent.length);
     }, interval);
   };
 
@@ -25,7 +23,7 @@ const Carousel = ({ images, interval, odooBanner }) => {
     return () => {
       pauseTimer();
     };
-  }, [images, interval]);
+  }, [slidesContent, interval]);
 
   return (
     <div
@@ -34,7 +32,7 @@ const Carousel = ({ images, interval, odooBanner }) => {
       onMouseLeave={startTimer}
     >
       <div className="carousel-inner-container overflow-hidden">
-        {images.map((image, index) => (
+        {slidesContent.map((slide, index) => (
           <>
             <div
               key={index}
@@ -44,31 +42,15 @@ const Carousel = ({ images, interval, odooBanner }) => {
             >
               <div className="absolute top-0 left-0 w-full h-[650px] bg-gray-900 opacity-70"></div>
               <Image
-                src={image}
+                src={slide?.slideImage}
                 alt={`Slide ${index}`}
                 className="w-full h-[650px]"
               />
               <div className="absolute top-0 left-0 right-0 mx-auto container px-32">
                 <div className="carousel-content text-white w-full flex">
-                  <div className="flex-auto justify-center flex flex-col h-[650px] w-2/5 gap-y-20">
-                    <div className="text-6xl font-bold">
-                      Odoo Development Services
-                    </div>
-                    <div className="text-xl">
-                      Leverage the power of emerging Artificial Intelligence
-                      technology to accelerate your business transformation!
-                    </div>
-                    <div className="flex gap-2">
-                      <div className="cursor-pointer bg-red-600 text-white font-medium text-sm px-8 py-4 rounded-md flex justify-center items-center gap-x-2 hover:bg-red-600/75">
-                        <div>Contact Us</div>
-                      </div>
-                      <div className="cursor-pointer outline outline-1 outline-red-600 text-white font-medium text-sm px-8 py-4 rounded-md flex justify-center items-center gap-x-2 hover:bg-red-600">
-                        <div>Learn More</div>
-                      </div>
-                    </div>
-                  </div>
+                  {slide.leftContent}
                   <div className="flex-auto justify-center flex items-center h-[650px] w-3/5">
-                    <Image src={odooBanner} alt="Odoo Banner" />
+                    <Image src={slide.banner} alt="Odoo Banner" />
                   </div>
                 </div>
               </div>
@@ -77,7 +59,7 @@ const Carousel = ({ images, interval, odooBanner }) => {
         ))}
       </div>
       <div className="absolute top-[600px] flex gap-1 w-full justify-center">
-        {images.map((image, index) => (
+        {slidesContent.map((slide, index) => (
           <div
             onClick={() => setCurrentIndex(index)}
             className={clsx(
@@ -90,15 +72,6 @@ const Carousel = ({ images, interval, odooBanner }) => {
       </div>
     </div>
   );
-};
-
-Carousel.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
-  interval: PropTypes.number,
-};
-
-Carousel.defaultProps = {
-  interval: 3000, // Default interval in milliseconds (3 seconds)
 };
 
 export default Carousel;

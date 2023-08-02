@@ -13,7 +13,7 @@ const index = () => {
     <div className="bg-white shadow-md h-16 flex justify-center items-center">
       <div className="container flex justify-between items-center px-32">
         <div className="">Left Icon</div>
-        <div className="flex justify-between items-center gap-x-8">
+        <div className="flex justify-between items-center gap-x-8 z-50">
           <div>
             <HeaderDropdown label="Services" options={dropdownListOptions} />
           </div>
