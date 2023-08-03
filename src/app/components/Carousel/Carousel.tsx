@@ -26,13 +26,14 @@ const Carousel = ({ slidesContent, interval }) => {
   }, [slidesContent, interval]);
 
   return (
-    <div
-      className="carousel-container relative"
-      onMouseEnter={pauseTimer}
-      onMouseLeave={startTimer}
-    >
-      <div className="carousel-inner-container overflow-hidden">
-        {slidesContent.map((slide, index) => (
+    <>
+      <div
+        className="carousel-container relative"
+        onMouseEnter={pauseTimer}
+        onMouseLeave={startTimer}
+      >
+        <div className="carousel-inner-container overflow-hidden">
+          {slidesContent.map((slide, index) => (
             <div
               key={`slides_${index}`}
               className={`carousel-slide w-full h-full absolute top-0 left-0 opacity-0 transition-opacity duration-1000 ease-in-out ${
@@ -54,21 +55,23 @@ const Carousel = ({ slidesContent, interval }) => {
                 </div>
               </div>
             </div>
-        ))}
+          ))}
+        </div>
+        <div className="absolute top-[600px] flex gap-1 w-full justify-center">
+          {slidesContent.map((slide, index) => (
+            <div
+              onClick={() => setCurrentIndex(index)}
+              className={clsx(
+                "bg-gray-300 h-1 w-6 rounded-md cursor-pointer",
+                currentIndex === index && "!bg-red-600"
+              )}
+              key={`btn_${index}`}
+            ></div>
+          ))}
+        </div>
       </div>
-      <div className="absolute top-[600px] flex gap-1 w-full justify-center">
-        {slidesContent.map((slide, index) => (
-          <div
-            onClick={() => setCurrentIndex(index)}
-            className={clsx(
-              "bg-gray-300 h-1 w-6 rounded-md cursor-pointer",
-              currentIndex === index && "!bg-red-600"
-            )}
-            key={`btn_${index}`}
-          ></div>
-        ))}
-      </div>
-    </div>
+      <div className="h-[650px]"></div>
+    </>
   );
 };
 
