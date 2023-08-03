@@ -4,7 +4,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 
-const Carousel = ({ slidesContent, interval, odooBanner }) => {
+const Carousel = ({ slidesContent, interval }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timerRef = useRef(null);
 
@@ -33,9 +33,8 @@ const Carousel = ({ slidesContent, interval, odooBanner }) => {
     >
       <div className="carousel-inner-container overflow-hidden">
         {slidesContent.map((slide, index) => (
-          <>
             <div
-              key={index}
+              key={`slides_${index}`}
               className={`carousel-slide w-full h-full absolute top-0 left-0 opacity-0 transition-opacity duration-1000 ease-in-out ${
                 index === currentIndex ? "opacity-100" : "opacity-0"
               }`}
@@ -55,7 +54,6 @@ const Carousel = ({ slidesContent, interval, odooBanner }) => {
                 </div>
               </div>
             </div>
-          </>
         ))}
       </div>
       <div className="absolute top-[600px] flex gap-1 w-full justify-center">
@@ -63,10 +61,10 @@ const Carousel = ({ slidesContent, interval, odooBanner }) => {
           <div
             onClick={() => setCurrentIndex(index)}
             className={clsx(
-              "bg-gray-300 h-1 w-6 rounded-md",
+              "bg-gray-300 h-1 w-6 rounded-md cursor-pointer",
               currentIndex === index && "!bg-red-600"
             )}
-            key={index}
+            key={`btn_${index}`}
           ></div>
         ))}
       </div>

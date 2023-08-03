@@ -55,7 +55,7 @@ const HeaderDropdown = ({ label, options }) => {
             >
               {options.map((option, index) => {
                 return <a
-                  key={`options_${index}`}
+                  key={`options_${option?.label}_${index}`}
                   href={option?.href}
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                   role="menuitem"
