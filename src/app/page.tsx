@@ -1,11 +1,13 @@
 import Carousel from "./components/Carousel/Carousel";
 import ServiceSection from "./components/Sections/Service";
 import CounterSection from "./components/Sections/Counter";
+import ContinousSection from "./components/Sections/Continous";
+import ClientSection from "./components/Sections/Client";
+import BlogCardSection from "./components/Sections/Blog";
 import imagePic from "../../public/assets/image.jpeg";
 import imagePic2 from "../../public/assets/image3.jpg";
 import odooBanner from "../../public/assets/oodo-banner-right-side.webp";
 import webBanner from "../../public/assets/react-banner-sider.webp";
-import { PiShoppingCartLight } from "react-icons/pi";
 
 const slidesContent = [
   {
@@ -59,6 +61,14 @@ export default function Home() {
 
       {/* Service Section */}
       <ServiceSection />
+
+      {/* Continous Section */}
+      <ContinousSection />
+
+      {/* Client Section */}
+      <ClientSection />
+
+      <BlogCardSection />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { FiChevronDown } from "react-icons/fi";
 import clsx from "clsx";
+import Link from "next/link";
 
 const HeaderDropdown = ({ label, options }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,14 +55,14 @@ const HeaderDropdown = ({ label, options }) => {
               aria-labelledby="options-menu"
             >
               {options.map((option, index) => {
-                return <a
+                return <Link
                   key={`options_${option?.label}_${index}`}
                   href={option?.href}
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                   role="menuitem"
                 >
                   {option?.label}
-                </a>;
+                </Link>;
               })}
             </div>
           </div>

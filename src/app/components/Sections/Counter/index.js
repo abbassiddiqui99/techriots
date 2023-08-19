@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 import { PiShoppingCartLight } from "react-icons/pi";
 
@@ -12,8 +13,8 @@ const CounterSection = () => {
                     <div className="text-3xl font-bold my-10">
                         Our numbers will give you the answer.
                     </div>
-                    <div className="bg-black/50 flex-1 flex justify-center items-center">
-                        Image
+                    <div className="flex-1 flex justify-center items-center relative rounded-sm">
+                        <Image src={'https://placekitten.com/1600'} alt='image' fill className='rounded-[5px]' />
                     </div>
                 </div>
                 <div className="flex-auto w-4/6 rounded-3xl rounded-bl-[60px] bg-[url('https://placekitten.com/1400')] bg-cover bg-center">
