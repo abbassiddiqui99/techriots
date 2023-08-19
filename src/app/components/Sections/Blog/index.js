@@ -102,6 +102,12 @@ const BlogCardSection = () => {
             </div>
           </div>
         </div>
+        <div className="flex gap-2">
+          <div className="cursor-pointer mt-14 bg-red-600 text-white font-medium text-sm px-8 py-4 rounded-md flex justify-center items-center gap-x-2 hover:bg-red-600/75">
+            View All
+            <FiArrowRight />
+          </div>
+        </div>
       </div>
     </div>
   );
