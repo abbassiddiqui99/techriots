@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'odoo-service-banner': "url('https://www.ksolves.com/images/pages/odoo-development-company/odoo-service-banner.webp')"
+      }
     },
   },
   plugins: [],
