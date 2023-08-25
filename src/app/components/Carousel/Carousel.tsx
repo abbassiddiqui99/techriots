@@ -1,6 +1,6 @@
 "use client";
 
-import clsx from "clsx";
+// import clsx from "clsx";
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 
@@ -36,9 +36,8 @@ const Carousel = ({ slidesContent, interval }) => {
           {slidesContent.map((slide, index) => (
             <div
               key={`slides_${index}`}
-              className={`carousel-slide w-full h-full absolute top-0 left-0 opacity-0 transition-opacity duration-1000 ease-in-out ${
-                index === currentIndex ? "opacity-100" : "opacity-0"
-              }`}
+              className={`carousel-slide w-full h-full absolute top-0 left-0 opacity-0 transition-opacity duration-1000 ease-in-out ${index === currentIndex ? "opacity-100" : "opacity-0"
+                }`}
             >
               <div className="absolute top-0 left-0 w-full h-[650px] bg-gray-900 opacity-70"></div>
               <Image
@@ -61,10 +60,10 @@ const Carousel = ({ slidesContent, interval }) => {
           {slidesContent.map((slide, index) => (
             <div
               onClick={() => setCurrentIndex(index)}
-              className={clsx(
-                "bg-gray-300 h-1 w-6 rounded-md cursor-pointer",
-                currentIndex === index && "!bg-red-600"
-              )}
+              // className={clsx(
+              //   "bg-gray-300 h-1 w-6 rounded-md cursor-pointer",
+              //   currentIndex === index && "!bg-red-600"
+              // )}
               key={`btn_${index}`}
             ></div>
           ))}

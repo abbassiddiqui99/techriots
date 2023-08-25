@@ -1,6 +1,8 @@
 import React from "react";
 import { BsTelephoneFill } from "react-icons/bs";
 import HeaderDropdown from "../Dropdown/HeaderDropdown";
+import Image from "next/image"
+import Logo from "../../../../public/assets/main_logo.png"
 
 const dropdownListOptions = [
   { label: "Option 1", href: "#" },
@@ -12,7 +14,7 @@ const index = () => {
   return (
     <div className="bg-white shadow-md h-16 flex justify-center items-center">
       <div className="container flex justify-between items-center px-32">
-        <div className="">Left Icon</div>
+        <div className=""><Image src={Logo} width={200} height={200} alt="main logo" /></div>
         <div className="flex justify-between items-center gap-x-8 z-50">
           <div>
             <HeaderDropdown label="Services" options={dropdownListOptions} />
