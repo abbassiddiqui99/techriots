@@ -60,10 +60,10 @@ const Carousel = ({ slidesContent, interval }) => {
           {slidesContent.map((slide, index) => (
             <div
               onClick={() => setCurrentIndex(index)}
-              // className={clsx(
-              //   "bg-gray-300 h-1 w-6 rounded-md cursor-pointer",
-              //   currentIndex === index && "!bg-red-600"
-              // )}
+              className={clsx(
+                "bg-gray-300 h-1 w-6 rounded-md cursor-pointer",
+                currentIndex === index && "!bg-red-600"
+              )}
               key={`btn_${index}`}
             ></div>
           ))}
